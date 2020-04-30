@@ -14,7 +14,7 @@ or set fixed duration of display for all srt lines
 * Unfortunately when playing a SRT with the fixed duration set to 7 milliseconds or lower
   VLC does not seem to display the subtitles at all.
   I saw this by playing the movie in 0.5 normal speed.
-  The smallest duration that is displayed is 8 ms, but then Ican perceive the subtitles
+  The smallest duration that is displayed is 8 ms, but then I can perceive the subtitles
   flashing , which is not desired for subliminal suggestion.
    
 #### Comments:
