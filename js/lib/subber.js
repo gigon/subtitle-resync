@@ -24,6 +24,21 @@ function ts2ms(ts){
 }
 
 /**
+ * Set a fixed display durations of all subtitles in an str file
+ * @param  {int}    duration a duration in ms
+ * @param  {String} srt   a str file content
+ * @return {String}       the resync srt content
+ */
+function setDisplayDuration (duration, srt) {
+  return srt.replace(/(\d{2}):(\d{2}):(\d{2}),(\d{3}) --> (\d{2}):(\d{2}):(\d{2}),(\d{3})/g, function(){
+    var ms1 = ts2ms( [].slice.call(arguments, 1 , 5));
+    var ms = ts2ms( [].slice.call(arguments, 5 , 9));
+    ms = ms1 + duration;
+    return ms2ts(ms1) + " --> " + ms2ts(ms);
+  });
+}
+
+/**
  * Resync a str file with a delay
  * @param  {int}    delay a delay in ms
  * @param  {String} srt   a str file content

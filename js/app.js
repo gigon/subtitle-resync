@@ -53,12 +53,18 @@ const performResync = (old_srt) => {
 
   const ms = ts2ms(ts)
 
-  const delay = ms * parseInt(
-    get_duration(form, 'sign', true),
-    10
-  )
+  let new_srt;
 
-  const new_srt = resync(delay, old_srt)
+  if (get_duration(form, 'sign') == '0') {
+    new_srt = setDisplayDuration(ms, old_srt)
+  } else {
+    const delay = ms * parseInt(
+      get_duration(form, 'sign', true),
+      10
+    )
+  
+    new_srt = resync(delay, old_srt)  
+  }
 
   download_file(selectedFile.name, new_srt)
 }
